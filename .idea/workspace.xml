@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f40d0ff-226e-4a02-ba39-d611939f2572" name="Default Changelist" comment="" />
+    <list default="true" id="3f40d0ff-226e-4a02-ba39-d611939f2572" name="Default Changelist" comment="">
+      <change afterPath="$USER_HOME$/PycharmProjects/music-idea/app/utils.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/api/calls.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/api/calls.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/app/__init__.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/app/__init__.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/app/models.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/app/models.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/app/routes/main/routes.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/app/routes/main/routes.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/flask_session/a34698c6470338842cb09b65630cb6ad" beforeDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/flask_session/eea49427ac4f5ad7bb9def44a10e1d3a" beforeDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/lib/Album.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/lib/Album.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/lib/Artist.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/lib/Artist.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/lib/Person.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/lib/Person.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/lib/Playlist.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/lib/Playlist.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/PycharmProjects/music-idea/lib/Track.py" beforeDir="false" afterPath="$USER_HOME$/PycharmProjects/music-idea/lib/Track.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +41,18 @@
       </map>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/PycharmProjects/music-idea" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/giladspitzer/playlist_curator" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1wEe5MkNflOmMJol57Yzp8LR21H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -95,15 +121,48 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1628027991002</updated>
-      <workItem from="1628027992146" duration="11485000" />
+      <workItem from="1628027992146" duration="17996000" />
     </task>
+    <task id="LOCAL-00001" summary="updates to auth">
+      <created>1628182487255</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628182487255</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updates to auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates to auth" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/music_idea$music_idea.coverage" NAME="music-idea Coverage Results" MODIFIED="1628182089880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/PycharmProjects/music-idea" />
+    <SUITE FILE_PATH="coverage/music_idea$music_idea.coverage" NAME="music-idea Coverage Results" MODIFIED="1628189846127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/PycharmProjects/music-idea" />
     <SUITE FILE_PATH="coverage/music_idea$Flask__application_py_.coverage" NAME="Flask (application.py) Coverage Results" MODIFIED="1628093624146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

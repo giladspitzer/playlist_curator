@@ -39,10 +39,35 @@ def get_user(e_user_id=None):
 
 
 def get_playlists():
-    response = requests.get('https://api.spotify.com/v1/me/playlists', headers={"Authorization": f"Bearer {session['token']}"})
-    return parse_response(response)
+    more = True
+    playlists = []
+    uri = 'https://api.spotify.com/v1/me/playlists'
+    while more:
+        resp = requests.get(uri, headers={"Authorization": f"Bearer {session['token']}"})
+        playlists.extend(resp.json()['items'])
+        if resp.json()['next'] is not None:
+            uri = resp.json()['next']
+        else:
+            more = False
+    return playlists
+
+
+def get_playlist(playlist_id):
+    resp = requests.get(f'https://api.spotify.com/v1/playlists/{playlist_id}',
+                        headers={"Authorization": f"Bearer {session['token']}"})
+
+    return parse_response(resp)
 
 
 def get_playlist_tracks(playlist_id):
-    response = requests.get(f'https://api.spotify.com/v1/playlists/{playlist_id}/tracks', headers={"Authorization": f"Bearer {session['token']}"})
-    return parse_response(response)
+    more = True
+    tracks = []
+    uri = f'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'
+    while more:
+        resp = requests.get(uri, headers={"Authorization": f"Bearer {session['token']}"})
+        tracks.extend(resp.json()['items'])
+        if resp.json()['next'] is not None:
+            uri = resp.json()['next']
+        else:
+            more = False
+    return tracks

@@ -28,18 +28,16 @@ def create_app(config_class=Config):
     @application.before_request
     def before_request():
         if current_user.is_authenticated:
-            if flask_session.get('expiry') <= datetime.utcnow():
+            if flask_session.get('expiry') <= datetime.now():
                 if flask_session.get('refresh_token') is not None:
-                    print('refresh')
                     response = get_token(flask_session.get('refresh_token'), refresh=True)
                     if response is not None:
                         flask_session['token'] = response['access_token']
-                        flask_session['expiry'] = datetime.now() + timedelta(seconds=5)
+                        flask_session['expiry'] = datetime.now() + timedelta(seconds=response['expires_in'])
                         flask_session['refresh_token'] = None
                     else:
                         pass
                 else:
-                    print('logout')
                     flask_session.clear()
                     logout_user()
                     return redirect(url_for('main.main'))

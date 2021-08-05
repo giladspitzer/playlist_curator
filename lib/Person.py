@@ -12,15 +12,23 @@ class Person:
     e_id = ''
     other_data = {}
 
-    def __init__(self, login=False):
-        user = get_user()
-        print(user)
+    def __repr__(self):
+        return '<Person {}>'.format(self.name)
+
+    def __init__(self, login=False, e_user_id=None, user_data=None):
+        if user_data is None:
+            user = get_user(e_user_id)
+        else:
+            user = user_data
         if user is not None:
-            self.name = user['display_name']
-            self.country = user['country']
-            self.email = user['email']
             self.e_id = user['id']
+            self.name = user['display_name']
             self.other_data = user
+            if 'country' in user.keys():
+                self.country = user['country']
+            if 'email' in user.keys():
+                self.email = user['email']
+
         if login:
             session['current_user_details'] = self
             base_q = db.session.query(User).filter(User.e_id == self.e_id)
@@ -30,3 +38,13 @@ class Person:
                 db.session.commit()
             else:
                 login_user(base_q.first())
+
+    def jsonify(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'country': self.country,
+            'email': self.email,
+            'e_id': self.e_id,
+            'other_data': self.other_data
+        }
