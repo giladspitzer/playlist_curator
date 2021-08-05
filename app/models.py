@@ -5,7 +5,7 @@ from sqlalchemy import func
 
 @login.user_loader
 def load_user(user_id):
-    return User.get(user_id)
+    return User.query.get(user_id)
 
 
 class User(UserMixin, db.Model):

@@ -1,11 +1,14 @@
-from flask import Flask, request
-from flask_login import LoginManager
+from flask import Flask, redirect, url_for, session as flask_session
+from flask_login import LoginManager, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_session import Session
 from config import Config
+from datetime import datetime, timedelta
+from api.calls import get_token
 
 login = LoginManager()  # creates status var for state of login
+login.login_view = "main.main"
 db = SQLAlchemy()
 migrate = Migrate()
 session = Session()
@@ -21,6 +24,27 @@ def create_app(config_class=Config):
 
     from app.routes.main import bp as main_bp
     application.register_blueprint(main_bp)
+
+    @application.before_request
+    def before_request():
+        if current_user.is_authenticated:
+            if flask_session.get('expiry') <= datetime.utcnow():
+                if flask_session.get('refresh_token') is not None:
+                    print('refresh')
+                    response = get_token(flask_session.get('refresh_token'), refresh=True)
+                    if response is not None:
+                        flask_session['token'] = response['access_token']
+                        flask_session['expiry'] = datetime.now() + timedelta(seconds=5)
+                        flask_session['refresh_token'] = None
+                    else:
+                        pass
+                else:
+                    print('logout')
+                    flask_session.clear()
+                    logout_user()
+                    return redirect(url_for('main.main'))
+        else:
+            flask_session.clear()
 
     return application
 
