@@ -3,3 +3,4 @@
 /flask_session
 /frontend/dist
 /frontend/node_modules
+.idea
