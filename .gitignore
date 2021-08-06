@@ -1,5 +1,5 @@
+/backend/env
+/backend/flask_session
 /flask_session
-flask_session
-flask_session/
-/flask_session/
-flask_session.
+/frontend/dist
+/frontend/node_modules
