@@ -3,6 +3,7 @@ from flask_login import LoginManager, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_session import Session
+from flask_cors import CORS
 from backend.config import Config
 from datetime import datetime, timedelta
 from backend.api.calls import get_token
@@ -13,7 +14,7 @@ login.login_view = "auth.login"
 db = SQLAlchemy()
 migrate = Migrate()
 session = Session()
-
+cors = CORS()
 
 def create_app(config_class=Config):
     template_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
@@ -26,11 +27,19 @@ def create_app(config_class=Config):
     db.init_app(application)
     migrate.init_app(application, db)
     session.init_app(application)
-    print(application.static_url_path, application.has_static_folder, application.static_folder)
+    cors.init_app(application)
+
     from backend.app.routes.main import bp as main_bp
     application.register_blueprint(main_bp, url_prefix='/api')
     from backend.app.routes.auth import bp as auth_bp
     application.register_blueprint(auth_bp, url_prefix='/api/auth')
+
+    @application.after_request
+    def after_request(response):
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+        return response
 
     @application.before_request
     def before_request():
@@ -52,8 +61,11 @@ def create_app(config_class=Config):
         else:
             flask_session.clear()
 
-    @application.route('/')
-    def template():
+    @application.route('/', defaults={'path': ''})
+    @application.route("/<string:path>")
+    @application.route("/<path:path>")
+    def index(path=None):
+        print(path)
         return render_template('index.html')
 
     return application

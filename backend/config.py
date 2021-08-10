@@ -7,3 +7,5 @@ class Config:
     SPOTIFY_API_KEY = '***REMOVED***'
     SPOTIFY_API_SECRET = '***REMOVED***'
     TEMPLATE_FOLDER = '../frontend/dist'
+    CORS_ALLOW_HEADERS = '*'
+    CORS_ORIGINS = '*'

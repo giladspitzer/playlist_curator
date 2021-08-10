@@ -1,4 +1,4 @@
-from flask import request, redirect, session, url_for, current_app
+from flask import request, redirect, session, url_for, current_app, jsonify
 from flask_login import login_required
 from backend.app.routes.main import bp
 from backend.api.calls import get_playlists
@@ -15,7 +15,7 @@ def before_request():
 @bp.route('/playlists')
 def playlists():
     playlists = [Playlist(i['id'], i) for i in get_playlists()]
-    return str([playlist.jsonify() for playlist in playlists])
+    return jsonify([playlist.jsonify() for playlist in playlists])
 
 
 @bp.route('/playlist/<id>')
