@@ -1,0 +1,2 @@
+# playlist_curator
+- In Development: Playlists are an antiquated way of organizing music. There should be a way to add "tags" to your favorite songs and rate the "value" or "relevance" of those tags from 1-10. Then, when you want to listen to a particular type of music, you can enter the tags that you are in the mood for and score each one to tailor the output. The system will check the songs that you have tagged and create a playlist for that very specific mood (based on the tags).
